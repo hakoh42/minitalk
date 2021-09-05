@@ -6,13 +6,13 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 04:16:35 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/14 14:50:43 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:47:43 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_flagged_x(t_data *data)
+void	ft_flagged_x(t_data *data)
 {
 	if (!data->flags.zero && data->flags.width > 0)
 		ft_padding(data, data->flags.width, ' ');
@@ -25,7 +25,7 @@ void		ft_flagged_x(t_data *data)
 	ft_putuhexlow_to_buffer(data, data->arg.lli);
 }
 
-void		ft_print_x(t_data *data)
+void	ft_print_x(t_data *data)
 {
 	if (data->flags.dot && !data->arg.ulli)
 	{
@@ -49,7 +49,7 @@ void		ft_print_x(t_data *data)
 		ft_hex_print(data);
 }
 
-void		ft_flagged_upx(t_data *data)
+void	ft_flagged_upx(t_data *data)
 {
 	if (!data->flags.zero && data->flags.width > 0)
 		ft_padding(data, data->flags.width, ' ');
@@ -62,7 +62,7 @@ void		ft_flagged_upx(t_data *data)
 	ft_putuhexup_to_buffer(data, data->arg.ulli);
 }
 
-void		ft_xero(t_data *data)
+void	ft_xero(t_data *data)
 {
 	if (data->flags.dash)
 	{
@@ -82,7 +82,7 @@ void		ft_xero(t_data *data)
 	}
 }
 
-void		ft_print_upx(t_data *data)
+void	ft_print_upx(t_data *data)
 {
 	if (data->flags.dot && !data->arg.ulli)
 	{

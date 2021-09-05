@@ -6,7 +6,7 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 16:05:15 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/14 14:34:16 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:29:08 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	ft_get_arg(t_data *data)
 	if (data->type == '%')
 		data->arg.sc = '%';
 	else if (data->type == 'p')
-		data->arg.ulli = (unsigned long long)va_arg(data->va, void*);
+		data->arg.ulli = (unsigned long long)va_arg(data->va, void *);
 	else if (data->type == 's')
 	{
-		if (!(data->arg.scptr = va_arg(data->va, char*)))
+		data->arg.scptr = va_arg(data->va, char *);
+		if (!(data->arg.scptr))
 			data->arg.scptr = "(null)";
 	}
 	else if (data->type == 'c')

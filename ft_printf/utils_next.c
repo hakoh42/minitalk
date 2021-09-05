@@ -6,13 +6,13 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 14:36:43 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/14 14:53:50 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:49:40 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_neg_nb_hexlen(long long n)
+int	ft_neg_nb_hexlen(long long n)
 {
 	int					len;
 

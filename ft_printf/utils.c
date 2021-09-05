@@ -6,7 +6,7 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 22:11:07 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/09 04:05:49 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:48:39 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-int		ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int					i;
 
@@ -34,7 +34,7 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-int		ft_is_in_str(char c, char *str)
+int	ft_is_in_str(char c, char *str)
 {
 	int					i;
 
@@ -48,12 +48,12 @@ int		ft_is_in_str(char c, char *str)
 	return (0);
 }
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	return (c > 47 && c < 58);
 }
 
-int		ft_nb_len(int n)
+int	ft_nb_len(int n)
 {
 	long				res;
 	int					len;

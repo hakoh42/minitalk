@@ -6,13 +6,13 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 13:27:07 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/03 20:42:47 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:24:29 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_parse_flags(t_data *data, int *i)
+void	ft_parse_flags(t_data *data, int *i)
 {
 	ft_bzero(&(data->flags), sizeof(t_flags));
 	data->flags.is = 1;
@@ -28,7 +28,7 @@ void		ft_parse_flags(t_data *data, int *i)
 	}
 }
 
-int			ft_get_value(t_data *data, int *i)
+int	ft_get_value(t_data *data, int *i)
 {
 	int	val;
 
@@ -50,7 +50,7 @@ int			ft_get_value(t_data *data, int *i)
 	return (val);
 }
 
-void		ft_first_flags(t_data *data, int *i)
+void	ft_first_flags(t_data *data, int *i)
 {
 	while (data->str[*i] && ft_is_in_str(data->str[*i], FLAGS))
 	{
@@ -64,8 +64,8 @@ void		ft_first_flags(t_data *data, int *i)
 			data->flags.space = 1;
 		else if (data->str[*i] == '+')
 			data->flags.plus = 1;
-		else if (data->str[*i] == '*' || (ft_isdigit((int)data->str[*i]) &&
-														data->str[*i] != '0'))
+		else if (data->str[*i] == '*' || (ft_isdigit((int)data->str[*i])
+				&& data->str[*i] != '0'))
 			data->flags.width = ft_get_value(data, i);
 		else if (data->str[*i] == 'l' || data->str[*i] == 'h')
 			break ;
@@ -75,7 +75,7 @@ void		ft_first_flags(t_data *data, int *i)
 	}
 }
 
-void		ft_parse_prec(t_data *data, int *i)
+void	ft_parse_prec(t_data *data, int *i)
 {
 	(*i)++;
 	data->flags.dot = 1;
@@ -95,7 +95,7 @@ void		ft_parse_prec(t_data *data, int *i)
 	}
 }
 
-void		ft_parse_size(t_data *data, int *i)
+void	ft_parse_size(t_data *data, int *i)
 {
 	if (data->str[*i] == 'l')
 	{

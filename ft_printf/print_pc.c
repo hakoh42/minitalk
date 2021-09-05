@@ -6,13 +6,13 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 15:37:59 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/15 19:09:22 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:42:42 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_print_c(t_data *data)
+void	ft_print_c(t_data *data)
 {
 	if (data->flags.width)
 		data->flags.width += -1;
@@ -37,12 +37,12 @@ void		ft_print_c(t_data *data)
 		ft_putchar_to_buffer(data, data->arg.sc);
 }
 
-void		ft_check_p(t_data *data)
+void	ft_check_p(t_data *data)
 {
 	if (data->flags.width)
 		data->flags.width -= (data->flags.len + 2);
-	if (data->flags.width && !data->arg.ulli && data->flags.dot &&
-			!data->flags.prec)
+	if (data->flags.width && !data->arg.ulli && data->flags.dot
+		&& !data->flags.prec)
 		data->flags.width += data->flags.len;
 	if (data->flags.prec > 0)
 	{
@@ -51,7 +51,7 @@ void		ft_check_p(t_data *data)
 	}
 }
 
-void		ft_dashed_print_p(t_data *data)
+void	ft_dashed_print_p(t_data *data)
 {
 	ft_putstr_to_buffer(data, "0x");
 	if (data->flags.prec > 0)
@@ -64,7 +64,7 @@ void		ft_dashed_print_p(t_data *data)
 		ft_padding(data, data->flags.width, ' ');
 }
 
-void		ft_print_p(t_data *data)
+void	ft_print_p(t_data *data)
 {
 	ft_check_p(data);
 	if (data->flags.dash && (data->flags.width > 0 || data->flags.prec > 0))

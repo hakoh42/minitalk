@@ -6,13 +6,13 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 18:18:15 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/14 23:24:32 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:25:07 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	t_data		data;
 

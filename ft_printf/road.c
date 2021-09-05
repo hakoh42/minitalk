@@ -6,13 +6,13 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 13:26:38 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/13 05:50:33 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:48:01 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_compass(t_data *data, char c)
+void	ft_compass(t_data *data, char c)
 {
 	if (c == '%' || c == 'c')
 		ft_print_c(data);
@@ -30,7 +30,7 @@ void		ft_compass(t_data *data, char c)
 		ft_print_p(data);
 }
 
-void		ft_check_flags(t_flags *flags)
+void	ft_check_flags(t_flags *flags)
 {
 	if (flags->width < 0)
 	{

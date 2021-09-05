@@ -6,18 +6,18 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 15:38:51 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/14 14:48:23 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:40:48 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_dashed_print_di(t_data *data)
+void	ft_dashed_print_di(t_data *data)
 {
 	if (data->flags.space || data->flags.plus || data->flags.minus)
 		ft_space(data);
-	if (data->flags.prec && ((data->flags.plus || data->flags.space) &&
-				data->arg.lli > -1))
+	if (data->flags.prec && ((data->flags.plus || data->flags.space)
+			&& data->arg.lli > -1))
 		data->flags.prec -= 1;
 	if (data->flags.prec > 0)
 	{
@@ -26,8 +26,8 @@ void		ft_dashed_print_di(t_data *data)
 	}
 	if (data->flags.prec > 0 && data->flags.width)
 		data->flags.width -= data->flags.prec;
-	if (data->flags.prec && ((data->flags.plus || data->flags.space) &&
-				data->arg.lli > -1))
+	if (data->flags.prec && ((data->flags.plus || data->flags.space)
+			&& data->arg.lli > -1))
 		data->flags.width--;
 	if (data->flags.size)
 		ft_sized(data);
@@ -37,17 +37,17 @@ void		ft_dashed_print_di(t_data *data)
 		ft_padding(data, data->flags.width, ' ');
 }
 
-void		ft_flagged_print_di(t_data *data)
+void	ft_flagged_print_di(t_data *data)
 {
 	if (data->flags.prec > 0)
 		data->flags.prec -= data->flags.len;
-	if (data->flags.prec && ((data->flags.plus || data->flags.space) &&
-				data->arg.lli > -1))
+	if (data->flags.prec && ((data->flags.plus || data->flags.space)
+			&& data->arg.lli > -1))
 		data->flags.prec -= 1;
 	if (data->flags.prec > 0 && data->flags.width)
 		data->flags.width -= data->flags.prec;
-	if (data->flags.dot && ((data->flags.plus || data->flags.space) &&
-				data->arg.lli > -1))
+	if (data->flags.dot && ((data->flags.plus || data->flags.space)
+			&& data->arg.lli > -1))
 		data->flags.width--;
 	if (data->flags.width > 0 || data->flags.prec > 0)
 	{
@@ -66,12 +66,12 @@ void		ft_flagged_print_di(t_data *data)
 	}
 }
 
-void		ft_print_di(t_data *data)
+void	ft_print_di(t_data *data)
 {
 	if (data->flags.dot)
 		data->flags.zero = 0;
-	if ((data->arg.i == 0 && !data->flags.size) && data->flags.is &&
-			data->flags.dot)
+	if ((data->arg.i == 0 && !data->flags.size) && data->flags.is
+		&& data->flags.dot)
 	{
 		ft_zero_case(data);
 		return ;
@@ -79,14 +79,14 @@ void		ft_print_di(t_data *data)
 	ft_check_di(data);
 	if (data->flags.dash && (data->flags.width > 0 || data->flags.prec > 0))
 		ft_dashed_print_di(data);
-	else if (data->flags.width > 0 || (data->flags.dot &&
-				data->flags.prec > -1))
+	else if (data->flags.width > 0 || (data->flags.dot
+			&& data->flags.prec > -1))
 		ft_flagged_print_di(data);
 	else
 	{
-		if ((data->flags.space || data->flags.plus) || (data->flags.minus &&
-			data->flags.h && data->arg.si != -32768) || (data->flags.minus &&
-																!data->flags.h))
+		if ((data->flags.space || data->flags.plus) || (data->flags.minus
+				&& data->flags.h && data->arg.si != -32768)
+			|| (data->flags.minus && !data->flags.h))
 			ft_space(data);
 		if (data->flags.size)
 			ft_sized(data);
@@ -95,7 +95,7 @@ void		ft_print_di(t_data *data)
 	}
 }
 
-void		ft_check_neg_next(t_data *data)
+void	ft_check_neg_next(t_data *data)
 {
 	if (data->flags.l && data->arg.li < 0)
 	{
@@ -119,11 +119,11 @@ void		ft_check_neg_next(t_data *data)
 	}
 }
 
-void		ft_check_neg(t_data *data)
+void	ft_check_neg(t_data *data)
 {
-	if ((!data->flags.size || data->flags.hh) && data->arg.i < 0 &&
-			data->flags.is && (data->flags.width > 0 || (data->flags.dot &&
-					(data->flags.prec + 1 > data->flags.len))))
+	if ((!data->flags.size || data->flags.hh) && data->arg.i < 0
+		&& data->flags.is && (data->flags.width > 0
+			|| (data->flags.dot && (data->flags.prec + 1 > data->flags.len))))
 	{
 		data->arg.i *= -1;
 		data->flags.minus = 1;

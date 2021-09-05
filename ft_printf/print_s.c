@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   print_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 20:07:52 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/14 11:26:49 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:54:18 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void		ft_padding(t_data *data, int len, char pad_char)
+void	ft_padding(t_data *data, int len, char pad_char)
 {
 	while (len-- > 0)
 		ft_putchar_to_buffer(data, pad_char);
 }
 
-void		ft_flagged_print_s(t_data *data)
+void	ft_flagged_print_s(t_data *data)
 {
 	if (!data->flags.zero && data->flags.width > 0)
 		ft_padding(data, data->flags.width, ' ');
@@ -30,18 +30,24 @@ void		ft_flagged_print_s(t_data *data)
 		ft_putstr_to_buffer(data, data->arg.scptr);
 }
 
-void		ft_print_s(t_data *data)
+void	print_s_utils(t_data *data)
+{
+	data->flags.dot = 0;
+	data->flags.prec = -1;
+}
+
+void	ft_print_s(t_data *data)
 {
 	if (data->flags.dot && !(data->flags.prec < data->flags.len))
-	{
-		data->flags.dot = 0;
-		data->flags.prec = -1;
-	}
+		print_s_utils(data);
 	if (data->flags.dot && data->flags.width)
 		data->flags.width -= data->flags.prec;
 	else if (!data->flags.dot && data->flags.width)
-		if ((data->flags.width -= data->flags.len) < 1)
+	{
+		data->flags.width -= data->flags.len;
+		if (data->flags.width < 1)
 			data->flags.width = 0;
+	}
 	if (data->flags.dash && (data->flags.width > 0 || data->flags.prec > -1))
 	{
 		if (data->flags.prec > -1 && data->flags.dot)

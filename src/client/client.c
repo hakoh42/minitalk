@@ -6,7 +6,7 @@
 /*   By: hakoh <hakoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:26:30 by hakoh             #+#    #+#             */
-/*   Updated: 2021/09/04 12:58:09 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 12:13:14 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atoi(char *str)
 
 void	send_error(char *str)
 {
-	ft_printf("======== ERROR =========\n%s==============\n", str);
+	ft_printf("===== ERROR =====\n%s=================\n", str);
 	exit(0);
 }
 
@@ -66,7 +66,7 @@ void	send_signals(int server_pid, char c)
 			if (kill(server_pid, SIGUSR2) == -1)
 				send_error("Wrong [PID]\n");
 		}
-		usleep(100);
+		usleep(150);
 		i--;
 	}
 }

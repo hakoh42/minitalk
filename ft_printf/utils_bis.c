@@ -6,13 +6,13 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 14:58:58 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/14 14:38:27 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:49:20 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_uns_llnb_len(unsigned long long n)
+int	ft_uns_llnb_len(unsigned long long n)
 {
 	int					len;
 
@@ -25,7 +25,7 @@ int		ft_uns_llnb_len(unsigned long long n)
 	return (len);
 }
 
-int		ft_uns_nb_len(unsigned int n)
+int	ft_uns_nb_len(unsigned int n)
 {
 	long				res;
 	int					len;
@@ -40,7 +40,7 @@ int		ft_uns_nb_len(unsigned int n)
 	return (len);
 }
 
-int		ft_llnb_len(long long n)
+int	ft_llnb_len(long long n)
 {
 	int					len;
 
@@ -58,7 +58,7 @@ int		ft_llnb_len(long long n)
 	return (len);
 }
 
-int		ft_nb_hexlen(int n)
+int	ft_nb_hexlen(int n)
 {
 	int					len;
 	long				res;
@@ -78,7 +78,7 @@ int		ft_nb_hexlen(int n)
 	return (len);
 }
 
-int		ft_uns_llnb_hexlen(unsigned long long n)
+int	ft_uns_llnb_hexlen(unsigned long long n)
 {
 	int					len;
 

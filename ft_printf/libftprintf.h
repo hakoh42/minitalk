@@ -6,7 +6,7 @@
 /*   By: hakoh <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 18:13:55 by hakoh             #+#    #+#             */
-/*   Updated: 2020/02/14 22:57:52 by hakoh            ###   ########.fr       */
+/*   Updated: 2021/09/05 11:54:56 by hakoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-typedef union			u_types
+typedef union u_types
 {
 	char					sc;
 	unsigned char			uc;
@@ -40,16 +40,16 @@ typedef union			u_types
 	char					*scptr;
 	int						*iptr;
 	void					*vptr;
-}						t_types;
+}	t_types;
 
-typedef	struct			s_bfr
+typedef struct s_bfr
 {
 	char				buf[BUFFER_SIZE];
 	int					i_buf;
 	int					b_size;
 }						t_bfr;
 
-typedef	struct			s_flags
+typedef struct s_flags
 {
 	int					is;
 	int					dash;
@@ -69,9 +69,9 @@ typedef	struct			s_flags
 	int					len;
 	int					minus;
 	int					guest;
-}						t_flags;
+}	t_flags;
 
-typedef struct			s_data
+typedef struct s_data
 {
 	t_bfr				buffer;
 	t_flags				flags;
@@ -79,7 +79,7 @@ typedef struct			s_data
 	va_list				va;
 	char				*str;
 	char				type;
-}						t_data;
+}	t_data;
 
 /*
 ** FT_PRINTF.c
@@ -137,9 +137,9 @@ void					ft_putnbr_to_buffer(t_data *data, long long n);
 
 void					ft_puthexlow_to_buffer(t_data *data, int n);
 void					ft_putuhexlow_to_buffer(t_data *data,
-													unsigned long long n);
+							unsigned long long n);
 void					ft_putuhexup_to_buffer(t_data *data,
-													unsigned long long n);
+							unsigned long long n);
 void					ft_puthexup_to_buffer(t_data *data, int n);
 void					ft_putneghexup_to_buffer(t_data *data, long long n);
 
@@ -172,7 +172,7 @@ int						ft_neg_nb_hexlen(long long n);
 void					ft_putneghexlow_to_buffer(t_data *data, long long n);
 void					ft_hex_print(t_data *data);
 void					ft_putunbr_to_buffer(t_data *data,
-														unsigned long long n);
+							unsigned long long n);
 
 /*
 ** PRINT_S.c
@@ -180,6 +180,7 @@ void					ft_putunbr_to_buffer(t_data *data,
 
 void					ft_padding(t_data *data, int len, char pad_char);
 void					ft_print_s(t_data *data);
+void					print_s_utils(t_data *data);
 void					ft_flagged_print_s(t_data *data);
 
 /*
